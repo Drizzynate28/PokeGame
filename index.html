@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokemon Adventures</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <link href="PokeGame.css" type="text/css" rel="stylesheet" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
+    <script src="https://courses.cs.washington.edu/courses/cse154/17sp/lib/ajax-promise.js"
+            type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="PokeGame.js" type="text/javascript"></script>
+</head>
+<body onload="greet()" onmousemove="playIntro()">
+    <span id="injectAudio"></span>
+    <h1 id="title">Pokemon Adventures</h1>
+    <h2 id="welcome">Welcome</h2>
+    <main id="mainTag">
+        <div id="my-card">
+            <div class="hidden buffs"></div>
+
+            <div class="card-container">
+                <div class="hidden hp-info">
+                    <p>HP:</p>
+                    <div class="health-bar-container">
+                        <div class="health-bar"></div>
+                    </div>
+                </div>
+
+                <div id="Pokedex" class="card">
+                    <img id="normalbutton" src="icons/normal.jpg" alt="type" class="type" />
+                    <span class="hp"></span>
+                    <h2 class="name">POKEDEX</h2>
+                    <div id="PokedexScreen" class="pokemon-pic">
+                        <img id="catchpokemon" src="images/pokeball.png" alt="pokemon" class="pokepic" />
+                    </div>
+                    <p id="pokeinfo" class="info"></p>
+                    <div class="moves">
+                        <button onclick="catchPokemon()">
+                            <span class="move">CATCH POKEMON</span> <span class="dp"></span>
+                            <img id="catchbutton" src="img/PokeBall.png" alt="Pokemon move" />
+                        </button>
+                        <button onclick="startFightMode()">
+                            <span class="move">FIGHT GROUND!</span> <span class="dp"></span>
+                            <img id="figtbutton" src="icons/fighting.jpg" alt="Pokemon move" />
+                        </button>
+                    </div>
+                    <!--<img id="weaknessbutton" src="icons/fighting.jpg" alt="weakness" class="weakness" />-->
+                </div>
+
+                <button class="hidden" id="start-btn">Choose This Pokemon!</button>
+                <button class="hidden" id="flee-btn">Flee the Battle!</button>
+            </div>
+        </div>
+
+        <div id="pokedex-view"><center></center></div>
+
+    </main>
+    <br />
+</body>
+</html>

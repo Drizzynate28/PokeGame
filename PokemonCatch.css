@@ -1,0 +1,407 @@
+﻿@keyframes pikachu-disappear {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes throw-ball {
+    0% {
+        top: 150%;
+        left: 20%;
+        transform: scale(0.5)
+    }
+
+    35% {
+        top: 40%;
+        left: 41%;
+        transform: scale(1.2)
+    }
+
+    40% {
+        top: 37%;
+        left: 42%;
+        transform: scale(1.3)
+    }
+
+    42.5% {
+        top: 38.5%;
+        left: 42.5%;
+        transform: scale(1.3)
+    }
+
+    85% {
+        top: 38.5%;
+        left: 42.5%;
+        transform: scale(1.3)
+    }
+
+    100% {
+        top: 50%;
+        left: 47.2%;
+        transform: scale(1)
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0);
+    }
+
+    10% {
+        transform: rotate(-15deg);
+    }
+
+    20% {
+        transform: rotate(15deg);
+    }
+
+    30% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+@keyframes catch {
+    0% {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    100% {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+@keyframes star1 {
+    0% {
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transform: rotate(0);
+    }
+
+    40% {
+        top: -70px;
+        left: -30px;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    80% {
+        top: -50px;
+        left: -50px;
+        opacity: 1;
+        transform: rotate(-45deg)scale(1.2);
+    }
+
+    100% {
+        top: -50px;
+        left: -50px;
+        opacity: 0;
+        transform: rotate(-60deg) scale(1);
+    }
+}
+
+@keyframes star2 {
+    0% {
+        top: 0;
+        opacity: 1;
+    }
+
+    40% {
+        top: -90px;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    80% {
+        top: -70px;
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        top: -70px;
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+@keyframes star3 {
+    0% {
+        top: 0;
+        opacity: 1;
+        transform: rotate(0);
+    }
+
+    40% {
+        top: -70px;
+        left: calc(70% + 30px);
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    80% {
+        top: -50px;
+        left: calc(70% + 50px);
+        opacity: 1;
+        transform: rotate(45deg) scale(1.2);
+    }
+
+    100% {
+        top: -50px;
+        left: calc(70% + 50px);
+        opacity: 0;
+        transform: rotate(60deg) scale(1);
+    }
+}
+
+@keyframes successMessage {
+    from {
+        opacity: 1;
+        width: 0;
+    }
+
+    to {
+        opacity: 1;
+        width: 500px;
+    }
+}
+
+@keyframes gotchaMessage {
+    from {
+        opacity: 1;
+        width: 0;
+    }
+
+    to {
+        opacity: 1;
+        width: 160px;
+    }
+}
+
+@keyframes throwMessage {
+    from {
+        opacity: 1;
+        width: 0;
+    }
+
+    to {
+        opacity: 1;
+        width: 510px;
+    }
+}
+
+$courier: "Courier New",
+Courier,
+monospace;
+body {
+    overflow: hidden;
+    resize:inherit;
+}
+
+h1,
+a {
+    font-family: $courier;
+    text-transform: uppercase;
+}
+
+.container {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    //background:red;
+}
+
+.pikachu {
+    position: fixed;
+    width: 300px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.textbox {
+    position: fixed;
+    width: 90%;
+}
+
+.textbox-text {
+    margin-left: 5%;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 5px;
+    opacity: 0;
+}
+
+.throw {
+    @extend .textbox-text;
+    width: 510px;
+}
+
+.gotcha {
+    @extend .textbox-text;
+    width: 160px;
+}
+
+.success {
+    @extend .textbox-text;
+    width: 450px;
+}
+
+.textbox {
+    border: 5px solid black;
+    border-radius: 5px;
+    margin: 2% 5%;
+    height: 130px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bold;
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+}
+
+    a:active,
+    a:hover,
+    a:visited {
+        color: red;
+    }
+
+.pokeball {
+    background-color: black;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: all 0.25s ease-in-out;
+    top: 150%;
+    left: 20%;
+    transform-origin: center bottom;
+}
+
+.catch {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.pokeball:target {
+    //animation: wiggle 1s 3;
+    animation: throw-ball 2s 1, wiggle 1s 3 2s;
+    animation-fill-mode: forwards;
+}
+
+    .pokeball:target .catch {
+        animation: catch 0.2s 1 steps(1, start);
+        animation-delay: 5.2s;
+        animation-fill-mode: forwards;
+    }
+
+    .pokeball:target .star1 {
+        animation: star1 0.45s linear 1;
+        animation-delay: 5.2s;
+    }
+
+    .pokeball:target .star2 {
+        animation: star2 0.45s linear 1;
+        animation-delay: 5.2s;
+    }
+
+    .pokeball:target .star3 {
+        animation: star3 0.45s linear 1;
+        animation-delay: 5.2s;
+    }
+
+    .pokeball:target .success {
+        animation: successMessage 0.48s linear 1;
+        animation-delay: 6.2s;
+    }
+
+.top {
+    background-color: red;
+    width: 90px;
+    height: 43px;
+    border-radius: 45px 45px 0 0;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom {
+    background-color: white;
+    width: 90px;
+    height: 43px;
+    border-radius: 0 0 45px 45px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centre-black {
+    width: 40px;
+    height: 40px;
+    background: black;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.centre-white {
+    width: 30px;
+    height: 30px;
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.star {
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+
+.star1 {
+    opacity: 0;
+    left: 0;
+}
+
+.star2 {
+    opacity: 0;
+    left: 33%;
+}
+
+.star3 {
+    opacity: 0;
+    left: 70%;
+}
